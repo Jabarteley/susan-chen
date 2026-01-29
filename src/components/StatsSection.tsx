@@ -9,7 +9,7 @@ const stats = [
     value: 20,
     suffix: "+",
     label: "Years Experience",
-    description: "In strategy & investment"
+    description: "In innovation & investment"
   },
   {
     icon: Globe,
