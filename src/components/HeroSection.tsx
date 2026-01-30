@@ -127,7 +127,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main content */}
-      <motion.div 
+      <motion.div
         style={{ y, opacity, scale }}
         className="container mx-auto px-6 lg:px-12 py-20 lg:py-32 relative z-10"
       >
@@ -135,105 +135,236 @@ const HeroSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl"
+          className="flex flex-col md:flex-row items-center gap-12 max-w-6xl"
         >
-          {/* Eyebrow with animated line */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
-            <motion.div 
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-px w-16 bg-gold origin-left"
-            />
-            <span className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">
-              Managing Director • Investor • Founder
-            </span>
-          </motion.div>
-
-          {/* Main Headline with reveal effect */}
-          <motion.div variants={itemVariants} className="overflow-hidden mb-4">
-            <motion.h1
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="font-display text-5xl md:text-6xl lg:text-8xl font-medium text-charcoal"
-            >
-              Susan Chen
-            </motion.h1>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="mb-6">
-            <p className="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal-light leading-snug">
-              <TypewriterText text="Global Investor, Founder, " delay={1200} />
-              <span className="text-gradient-gold italic">
-                <TypewriterText text="Operator" delay={2400} />
+          {/* Text Content */}
+          <div className="flex-1">
+            {/* Eyebrow with animated line */}
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="h-px w-16 bg-gold origin-left"
+              />
+              <span className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">
+                Managing Director • Investor • Founder
               </span>
-              <TypewriterText text=" & Mentor" delay={2800} />
-            </p>
-          </motion.div>
+            </motion.div>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl"
-          >
-            Scaling Tech & Investment Across Emerging Markets
-          </motion.p>
+            {/* Main Headline with reveal effect */}
+            <motion.div variants={itemVariants} className="overflow-hidden mb-4">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="font-display text-5xl md:text-6xl lg:text-8xl font-medium text-charcoal"
+              >
+                Susan Chen
+              </motion.h1>
+            </motion.div>
 
-          {/* Animated description with highlight */}
-          <motion.div variants={itemVariants} className="relative mb-8 max-w-2xl">
+            <motion.div variants={itemVariants} className="mb-6">
+              <p className="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal-light leading-snug">
+                <TypewriterText text="Global Investor, Founder, " delay={1200} />
+                <span className="text-gradient-gold italic">
+                  <TypewriterText text="Operator" delay={2400} />
+                </span>
+                <TypewriterText text=" & Mentor" delay={2800} />
+              </p>
+            </motion.div>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl"
+            >
+              Scaling Tech & Investment Across Emerging Markets
+            </motion.p>
+
+            {/* Animated description with highlight */}
+            <motion.div variants={itemVariants} className="relative mb-8 max-w-2xl">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: 4 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                className="absolute left-0 top-0 bottom-0 bg-gold rounded-full"
+              />
+              <p className="text-lg text-foreground/80 leading-relaxed pl-6">
+                Susan Chen is a Managing Director at a growth-stage investment fund focused on emerging markets.
+                A founder, angel investor, operator, and mentor, she partners with visionary entrepreneurs to build
+                real, scalable businesses that redefine what's possible beyond traditional tech hubs.
+              </p>
+            </motion.div>
+
+            {/* Location badge with map pulse */}
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: 4 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
-              className="absolute left-0 top-0 bottom-0 bg-gold rounded-full"
-            />
-            <p className="text-lg text-foreground/80 leading-relaxed pl-6">
-              Susan Chen is a Managing Director at a growth-stage investment fund focused on emerging markets. 
-              A founder, angel investor, operator, and mentor, she partners with visionary entrepreneurs to build 
-              real, scalable businesses that redefine what's possible beyond traditional tech hubs.
-            </p>
-          </motion.div>
+              variants={itemVariants}
+              className="flex items-center gap-3 mb-10"
+            >
+              <div className="relative">
+                <MapPin className="w-5 h-5 text-gold relative z-10" />
+                <motion.div
+                  animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute inset-0 bg-gold/30 rounded-full"
+                />
+              </div>
+              <span className="text-sm font-medium text-muted-foreground">
+                Experience across Sub-Saharan Africa, Southeast Asia, Latin America & global ecosystems
+              </span>
+            </motion.div>
 
-          {/* Location badge with map pulse */}
+            {/* CTA with magnetic effect */}
+            <motion.div variants={itemVariants}>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  size="lg"
+                  className="bg-charcoal hover:bg-charcoal-light text-cream px-10 py-7 text-base font-medium rounded-full shadow-elevated hover:shadow-gold transition-all duration-500 group relative overflow-hidden"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <span className="relative z-10 flex items-center">
+                    Contact Susan
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gold"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Profile Image with circular shape and enhanced animations */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-3 mb-10"
+            className="flex justify-center"
           >
-            <div className="relative">
-              <MapPin className="w-5 h-5 text-gold relative z-10" />
-              <motion.div
-                animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute inset-0 bg-gold/30 rounded-full"
-              />
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">
-              Experience across Sub-Saharan Africa, Southeast Asia, Latin America & global ecosystems
-            </span>
-          </motion.div>
-
-          {/* CTA with magnetic effect */}
-          <motion.div variants={itemVariants}>
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+              whileHover={{
+                scale: 1.1,
+                rotate: [0, -5, 5, 0]
+              }}
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 2, -2, 0]
+              }}
+              transition={{
+                y: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                rotate: {
+                  duration: 8,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }
+              }}
             >
-              <Button
-                size="lg"
-                className="bg-charcoal hover:bg-charcoal-light text-cream px-10 py-7 text-base font-medium rounded-full shadow-elevated hover:shadow-gold transition-all duration-500 group relative overflow-hidden"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-gold via-yellow-400 to-amber-500 p-1"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1],
+                  boxShadow: [
+                    "0 0 15px rgba(255, 215, 0, 0.4)",
+                    "0 0 30px rgba(255, 215, 0, 0.8)",
+                    "0 0 15px rgba(255, 215, 0, 0.4)"
+                  ]
+                }}
+                transition={{
+                  rotate: {
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  },
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut"
+                  },
+                  boxShadow: {
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut"
+                  }
+                }}
               >
-                <span className="relative z-10 flex items-center">
-                  Contact Susan
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
+                <div className="w-full h-full rounded-full bg-background overflow-hidden">
+                  <img
+                    src="/Susan Chen.jpeg"
+                    alt="Susan Chen"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Secondary animated ring */}
+              <motion.div
+                className="absolute -inset-4 rounded-full border-2 border-gold/30"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.7, 0.3],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Tertiary subtle glow effect */}
+              <motion.div
+                className="absolute inset-0 rounded-full border border-gold/20"
+                animate={{
+                  boxShadow: [
+                    "0 0 10px rgba(255, 215, 0, 0.3)",
+                    "0 0 20px rgba(255, 215, 0, 0.6)",
+                    "0 0 10px rgba(255, 215, 0, 0.3)"
+                  ],
+                  scale: [1, 1.03, 1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Floating particles around the image */}
+              {[...Array(6)].map((_, i) => (
                 <motion.div
-                  className="absolute inset-0 bg-gold"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
+                  key={i}
+                  className="absolute w-1 h-1 rounded-full bg-gold"
+                  style={{
+                    top: `${15 + Math.sin(i * 60) * 40}%`,
+                    left: `${15 + Math.cos(i * 60) * 40}%`
+                  }}
+                  animate={{
+                    scale: [0, 1, 0],
+                    opacity: [0, 1, 0]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut"
+                  }}
                 />
-              </Button>
+              ))}
             </motion.div>
           </motion.div>
         </motion.div>
