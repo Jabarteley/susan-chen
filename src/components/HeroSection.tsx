@@ -246,60 +246,12 @@ const HeroSection = () => {
             className="flex justify-center"
           >
             <motion.div
-              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+              className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
               whileHover={{
-                scale: 1.1,
-                rotate: [0, -5, 5, 0]
-              }}
-              animate={{
-                y: [0, -10, 0],
-                rotate: [0, 2, -2, 0]
-              }}
-              transition={{
-                y: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                },
-                rotate: {
-                  duration: 8,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
+                scale: 1.05
               }}
             >
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-gold via-yellow-400 to-amber-500 p-1"
-                animate={{
-                  rotate: [0, 360],
-                  scale: [1, 1.05, 1],
-                  boxShadow: [
-                    "0 0 15px rgba(255, 215, 0, 0.4)",
-                    "0 0 30px rgba(255, 215, 0, 0.8)",
-                    "0 0 15px rgba(255, 215, 0, 0.4)"
-                  ]
-                }}
-                transition={{
-                  rotate: {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear"
-                  },
-                  scale: {
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
-                  },
-                  boxShadow: {
-                    duration: 4,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
-                  }
-                }}
-              >
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold via-yellow-400 to-amber-500 p-1">
                 <div className="w-full h-full rounded-full bg-background overflow-hidden">
                   <img
                     src="/Susan Chen.jpeg"
@@ -307,15 +259,14 @@ const HeroSection = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </motion.div>
+              </div>
 
               {/* Secondary animated ring */}
               <motion.div
                 className="absolute -inset-4 rounded-full border-2 border-gold/30"
                 animate={{
                   scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.7, 0.3],
-                  rotate: [0, 180, 360]
+                  opacity: [0.3, 0.7, 0.3]
                 }}
                 transition={{
                   duration: 5,
@@ -343,28 +294,6 @@ const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               />
-
-              {/* Floating particles around the image */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 rounded-full bg-gold"
-                  style={{
-                    top: `${15 + Math.sin(i * 60) * 40}%`,
-                    left: `${15 + Math.cos(i * 60) * 40}%`
-                  }}
-                  animate={{
-                    scale: [0, 1, 0],
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                    ease: "easeInOut"
-                  }}
-                />
-              ))}
             </motion.div>
           </motion.div>
         </motion.div>
